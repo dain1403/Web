@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block sub_title %}분류 - <small>Iris 품종 분류</small>{% endblock %}
+{% block main %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form action="/classification_iris" method="POST" enctype="multipart/form-data">
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Sepal Length</td>
+                        <td><input type="text" class="form-control" id="slen" placeholder="Sepal Length" name="slen"></td>
+                      </tr>
+                      <tr>
+                        <td>Patal Length</td>
+                        <td><input type="text" class="form-control"  id="plen" placeholder="Patal Length" name="plen"></td>
+                      </tr>
+                      <tr>
+                        <td>Petal Width</td>
+                        <td><input type="text" class="form-control" id="pwid" placeholder="Petal Width" name="pwid"></td>
+                      </tr>
+                      <tr>
+                        <td>Sepal Width</td>
+                        <td><input type="text" class="form-control" id="pwid" placeholder="Sepal Width" name="swid"></td>
+                      </tr>
+                      
+                </table>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}
+{% block addition %}
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+{% endblock %}

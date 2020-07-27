@@ -47,9 +47,13 @@
                         <a class="nav-link {% if menu.stmt %}active{% endif %}"
                             href="{% if menu.stmt %}#{% else %}/sentiment{% endif %}">감성분석</a>
                     </li>
-                    <li class="nav-item"></li>
-                        <a class="nav-link {% if menu.clsf %}active{% endif %}" 
-                            href="{% if menu.clsf %}#{% else %}/classification{% endif %}">분류</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if menu.clsf %}active{% endif %}" 
+                           data-toggle="dropdown" href="#">분류</a>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/classification_iris">Iris classification</a>
+                        <a class="dropdown-item" href="/classification">Image classification</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if menu.clst %}active{% endif %}"
@@ -58,7 +62,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">멤버</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">김태균</a>
+                        <a class="dropdown-item" href="introduce">박다인</a>
                         <a class="dropdown-item" href="#">이용규</a>
                         <a class="dropdown-item" href="#">김민우</a>
                         </div>
@@ -79,6 +83,8 @@
             Copyright &copy; 2020 AI Innovator
         </span>
     </nav>
+    {% block addition %}
+    {% endblock %}
     {% include 'inc/clock.html' %}
 </body>
 </html>
