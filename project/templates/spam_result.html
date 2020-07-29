@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block subtitle %}
+<strong>RNN<</strong> - <small>Spam Mail 분류 결과</small>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-11"></div>
+        <form action="/spam_result" method="POST">
+                <table class="table">
+                    <tr class="alert alert-warning">
+                        <td style="text-align: center;"><strong>정확도</strong></td>
+                        <td style="text-align: center;"><strong>{{acc}}</strong></td>
+                    </tr>
+                    <tr>
+                        <td>스팸 확인</td>
+                        
+                        <td><textarea class="form-control" rows ="5" name = "spam_pred_text"></textarea> </td>
+                    </tr>
+                    <tr>    
+                        <td colspan="3" style="text-align: center;">
+                            <button class="btn btn-primary"
+                                    onclick="location.href='/spam_result'">실행</button>
+                        </td>
+                        <td colspan="3" style="text-align: center;">
+                            <button class="btn btn-primary"
+                                    onclick="location.href='/spam'">재실행</button>
+                        </td>
+                    </tr>		
+                </table>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>                
+{% endblock %}
